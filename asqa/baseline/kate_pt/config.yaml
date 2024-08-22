@@ -1,0 +1,79 @@
+train_config:
+  max_epoch : 3
+  spilt : 0.8
+  lr : 5.e-4
+  eta_min : 1.e-4
+  betas: [0.9, 0.99]
+  weight_decay : 0
+  topk : 3
+  start_beta : 0
+  end_beta : 1
+  pe_heads : 2
+  pe_bottle : 4096
+  pe_dropout : 0.0
+  load_E : False
+
+train2_config:
+  max_epoch : 1
+  spilt : 0.8
+  lr : 1.e-4
+  eta_min : 1.e-6
+  betas: [0.9, 0.99]
+  weight_decay : 0
+  topk : 3
+  start_beta : 0
+  end_beta : 1
+  pe_heads : 2
+  pe_bottle : 4096
+  pe_dropout : 0.0
+  load_E : True
+
+dataloader_config:
+  batch_size : 2
+  shuffle : True
+  num_workers : 1
+  persistent_workers : True
+
+dataloader2_config:
+  batch_size : 2
+  shuffle : True
+  num_workers : 1
+  persistent_workers : True
+
+
+
+dataloader_config_inference:
+  batch_size : 2
+  shuffle : False
+  num_workers : 1
+  persistent_workers : True
+
+
+generate_config:
+  # no_repeat_ngram_size: 6
+  do_sample: False
+  # top_k: 50
+  top_p: 1.0
+  num_beams: 1
+  temperature: 1.0
+   # bad_words_ids: null
+  # min_new_tokens : 128
+
+
+
+generate_config_es:
+  # no_repeat_ngram_size: 6
+  do_sample: True
+  top_k: 50
+  top_p: 0.9
+  num_beams: 1
+  temperature: 1.0
+
+
+seed: 708
+
+max_len: 512
+
+dataset_path: "din0s/asqa"
+
+hf_access_tokens: 'access_tokens'
